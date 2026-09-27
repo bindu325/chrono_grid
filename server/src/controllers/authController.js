@@ -16,10 +16,10 @@ exports.signup = async (req, res, next) => {
     const { name, email, password, role } = req.body;
 
     const normalizedEmail = (email || '').trim().toLowerCase();
-    if (!normalizedEmail || !/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(normalizedEmail)) {
+    if (!normalizedEmail || !/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/.test(normalizedEmail)) {
       return res.status(400).json({
         success: false,
-        message: 'Only personal Gmail addresses (@gmail.com) are allowed',
+        message: 'Please provide a valid email address',
       });
     }
 
@@ -50,7 +50,7 @@ exports.signup = async (req, res, next) => {
 
     const user = await User.create({
       name,
-      email,
+      email: normalizedEmail,
       password,
       role: assignedRole,
       facultyId,
@@ -87,10 +87,6 @@ exports.login = async (req, res, next) => {
     }
 
     const normalizedEmail = email.trim().toLowerCase();
-    if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(normalizedEmail)) {
-      return res.status(400).json({ success: false, message: 'Only personal Gmail addresses (@gmail.com) are allowed' });
-    }
-
     const user = await User.findOne({ email: normalizedEmail }).select('+password').populate('facultyId');
     if (!user) {
       return res.status(401).json({ success: false, message: 'Invalid email or password' });

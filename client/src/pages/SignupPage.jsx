@@ -19,8 +19,8 @@ const SignupPage = ({ onSwitchToLogin }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const cleanEmail = (formData.email || '').trim().toLowerCase();
-    if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(cleanEmail)) {
-      error('Only personal Gmail addresses (@gmail.com) are allowed');
+    if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,})+$/.test(cleanEmail)) {
+      error('Please enter a valid email address');
       return;
     }
 
@@ -89,7 +89,7 @@ const SignupPage = ({ onSwitchToLogin }) => {
 
             <div>
               <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                Personal Gmail Address
+                Email Address
               </label>
               <div className="relative">
                 <Mail className="w-5 h-5 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -98,11 +98,10 @@ const SignupPage = ({ onSwitchToLogin }) => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  placeholder="yourname@gmail.com"
+                  placeholder="name@college.edu or name@example.com"
                   className="w-full bg-slate-900/80 border border-slate-700 rounded-xl pl-11 pr-4 py-2.5 text-sm text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
                 />
               </div>
-              <p className="text-[11px] text-slate-500 mt-1.5">Only personal <strong>@gmail.com</strong> accounts are supported.</p>
             </div>
 
             <div>
