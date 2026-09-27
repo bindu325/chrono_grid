@@ -263,29 +263,8 @@ const seedDatabase = async () => {
     });
     await TimeSlot.insertMany(timeSlotsData);
 
-    // 6. Create Users (Admin, Faculty, Viewer)
-    console.log('[Seed] Creating users...');
-    const adminUser = await User.create({
-      name: 'System Administrator',
-      email: 'admin.timetable@gmail.com',
-      password: 'password123',
-      role: 'ADMIN',
-    });
-
-    await User.create({
-      name: 'Dr. Priya Sharma',
-      email: 'priya.sharma.faculty@gmail.com',
-      password: 'password123',
-      role: 'FACULTY',
-      facultyId: createdFaculty[0]._id,
-    });
-
-    await User.create({
-      name: 'Student Viewer',
-      email: 'student.viewer@gmail.com',
-      password: 'password123',
-      role: 'VIEWER',
-    });
+    // 6. Reset Users collection (No default/demo users created, users must register)
+    console.log('[Seed] Users collection cleared for fresh user signups.');
 
     // 7. Create Timetable Entries (50+ entries with INTENTIONAL CONFLICTS for instant demo)
     console.log('[Seed] Creating timetable schedule entries...');

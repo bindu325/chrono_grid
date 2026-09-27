@@ -7,8 +7,8 @@ import Logo from '../components/Logo';
 const LoginPage = ({ onSwitchToSignup }) => {
   const { login } = useAuth();
   const { success, error } = useToast();
-  const [email, setEmail] = useState('admin.timetable@gmail.com');
-  const [password, setPassword] = useState('password123');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -28,11 +28,6 @@ const LoginPage = ({ onSwitchToSignup }) => {
     } finally {
       setLoading(false);
     }
-  };
-
-  const handleQuickLogin = (roleEmail) => {
-    setEmail(roleEmail);
-    setPassword('password123');
   };
 
   return (
@@ -127,48 +122,6 @@ const LoginPage = ({ onSwitchToSignup }) => {
               )}
             </button>
           </form>
-
-          {/* Demo Quick Logins */}
-          <div className="mt-6 pt-6 border-t border-slate-800">
-            <span className="block text-xs font-medium text-slate-400 mb-3 text-center">
-              Or quick login with demo roles:
-            </span>
-            <div className="grid grid-cols-3 gap-2">
-              <button
-                type="button"
-                onClick={() => handleQuickLogin('admin.timetable@gmail.com')}
-                className={`px-2 py-2 rounded-lg text-xs font-semibold transition-all border ${
-                  email === 'admin.timetable@gmail.com'
-                    ? 'bg-black text-white border-black shadow-sm'
-                    : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-800 border-zinc-300'
-                }`}
-              >
-                Admin
-              </button>
-              <button
-                type="button"
-                onClick={() => handleQuickLogin('priya.sharma.faculty@gmail.com')}
-                className={`px-2 py-2 rounded-lg text-xs font-semibold transition-all border ${
-                  email === 'priya.sharma.faculty@gmail.com'
-                    ? 'bg-black text-white border-black shadow-sm'
-                    : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-800 border-zinc-300'
-                }`}
-              >
-                Faculty
-              </button>
-              <button
-                type="button"
-                onClick={() => handleQuickLogin('student.viewer@gmail.com')}
-                className={`px-2 py-2 rounded-lg text-xs font-semibold transition-all border ${
-                  email === 'student.viewer@gmail.com'
-                    ? 'bg-black text-white border-black shadow-sm'
-                    : 'bg-zinc-100 hover:bg-zinc-200 text-zinc-800 border-zinc-300'
-                }`}
-              >
-                Viewer
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Switch to Signup */}

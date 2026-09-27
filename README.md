@@ -11,15 +11,15 @@ Built specifically with the **MERN** stack:
 
 ---
 
-## 🔑 Demo Login Credentials
+## 🔐 User Registration & Authentication
 
-| Role | Email | Password | Admin Passkey |
-|---|---|---|---|
-| **System Administrator** | `admin.timetable@gmail.com` | `password123` | `ADMIN_2026` |
-| **Faculty Member** | `priya.sharma.faculty@gmail.com` | `password123` | — |
-| **Student / Viewer** | `student.viewer@gmail.com` | `password123` | — |
-
-*(Quick-login buttons for all three roles are also available directly on the login screen for instant demoing!)*
+Users must create an account to access the workspace:
+- **Personal Gmail Validation**: Only personal `@gmail.com` accounts are permitted.
+- **Account Roles**:
+  - **Viewer**: Public/student view of published timetable schedules, analytics, and PDF export.
+  - **Faculty**: Personal teaching schedule, subject allocation, and availability matrix configuration.
+  - **Administrator**: Complete control over faculty, rooms, timetable editor, and conflict resolver. To register as an Administrator, provide the passkey **`ADMIN_2026`** during signup.
+- **First Registered User**: The first user to register automatically receives **Administrator** privileges.
 
 ---
 
