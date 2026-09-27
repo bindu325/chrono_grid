@@ -2,8 +2,12 @@ import axios from 'axios';
 
 // Get raw baseURL or fallback to relative '/api'
 const rawBaseURL = import.meta.env.VITE_API_BASE_URL || '/api';
-// Remove trailing slash if present
-const normalizedBaseURL = rawBaseURL.replace(/\/+$/, '');
+// Clean trailing slash
+let normalizedBaseURL = rawBaseURL.replace(/\/+$/, '');
+// Ensure it ends with /api if a full domain was provided without /api
+if (normalizedBaseURL.startsWith('http') && !normalizedBaseURL.endsWith('/api')) {
+  normalizedBaseURL = `${normalizedBaseURL}/api`;
+}
 
 const API = axios.create({
   baseURL: normalizedBaseURL,
