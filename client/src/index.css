@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #111827;
+    background: #f8fafc;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  * { box-sizing: border-box; }
+  html { min-width: 320px; background: #f8fafc; }
+  body {
+    min-height: 100vh;
+    margin: 0;
+    background: #f8fafc;
+    color: #111827;
+  }
+  button, input, select, textarea { font: inherit; }
+  button { cursor: pointer; }
+  ::selection { background: #111827; color: #ffffff; }
+}
+
+/* ==========================================================================
+   Clean Black & White / Light-Theme SaaS Styling
+   ========================================================================== */
+
+/* Dark utility mapped to clean modern light palette */
+.bg-slate-950 { background-color: #f1f5f9 !important; }
+.bg-slate-900 { background-color: #ffffff !important; }
+.bg-slate-850 { background-color: #f8fafc !important; }
+.bg-slate-800 { background-color: #f1f5f9 !important; }
+.bg-slate-700 { background-color: #e2e8f0 !important; }
+.bg-slate-900\/95, .bg-slate-900\/90, .bg-slate-900\/80, .bg-slate-900\/70, .bg-slate-900\/50 {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+.bg-slate-800\/80, .bg-slate-800\/60 {
+  background-color: #f1f5f9 !important;
+}
+
+/* Text Hierarchy */
+.text-white { color: #0f172a !important; }
+.text-slate-100 { color: #1e293b !important; }
+.text-slate-200 { color: #334155 !important; }
+.text-slate-300 { color: #475569 !important; }
+.text-slate-400 { color: #64748b !important; }
+.text-slate-500 { color: #64748b !important; }
+.text-slate-600 { color: #64748b !important; }
+.text-slate-700 { color: #334155 !important; }
+
+/* Subtle Borders */
+.border-slate-800, .border-slate-800\/80, .border-slate-800\/60 { border-color: #e2e8f0 !important; }
+.border-slate-700 { border-color: #cbd5e1 !important; }
+
+/* Glass Cards & Containers */
+.glass-card {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02) !important;
+  border-radius: 16px;
+}
+
+/* Form inputs & select dropdowns */
+input, select, textarea {
+  color: #0f172a !important;
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+input::placeholder, textarea::placeholder { color: #94a3b8 !important; }
+input:focus, select:focus, textarea:focus {
+  border-color: #0f172a !important;
+  box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* App Layout */
+.app-shell { min-height: 100vh; background: #f8fafc; }
+.app-main { min-width: 0; }
+.page-content { width: min(100%, 1500px); }
+
+/* Sidebar */
+.app-sidebar {
+  background: #ffffff !important;
+  border-right: 1px solid #e2e8f0 !important;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.03) !important;
+}
+.app-sidebar .brand-mark {
+  background: #0f172a !important;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.15) !important;
+}
+.app-sidebar .brand-mark svg { color: #ffffff !important; }
+.app-sidebar .nav-item:not(.is-active):hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+.app-sidebar .nav-item.is-active {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15) !important;
+}
+.app-sidebar .nav-item.is-active svg,
+.app-sidebar .nav-item.is-active span {
+  color: #ffffff !important;
+}
+.app-sidebar .sidebar-divider { border-color: #e2e8f0 !important; }
+
+/* Navbar */
+.app-navbar {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Primary Action Buttons */
+button[class*="bg-gradient-to-r"],
+a[class*="bg-gradient-to-r"] {
+  background: #0f172a !important;
+  color: #ffffff !important;
+}
+button[class*="bg-gradient-to-r"] *,
+a[class*="bg-gradient-to-r"] * {
+  color: #ffffff !important;
+}
+
+/* Tables & Grid */
+table { border-collapse: separate; border-spacing: 0; }
+thead th {
+  color: #475569 !important;
+  background: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+tbody tr:hover td { background: #fafafa !important; }
+
+/* ==========================================================================
+   TOAST POPUPS (Crisp, High Contrast & Legible)
+   ========================================================================== */
+.fixed.bottom-6.right-6 [class*="bg-emerald-950"],
+.fixed.bottom-6.right-6 [class*="bg-rose-950"],
+.fixed.bottom-6.right-6 [class*="bg-amber-950"],
+.fixed.bottom-6.right-6 [class*="bg-slate-900"] {
+  background-color: #0f172a !important;
+  border: 1px solid #334155 !important;
+  box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.08) !important;
+}
+.fixed.bottom-6.right-6 div,
+.fixed.bottom-6.right-6 span {
+  color: #ffffff !important;
+}
+.fixed.bottom-6.right-6 button {
+  color: #94a3b8 !important;
+}
+.fixed.bottom-6.right-6 button:hover {
+  color: #ffffff !important;
+}
+.fixed.bottom-6.right-6 svg {
+  color: #38bdf8 !important;
+}
+.fixed.bottom-6.right-6 .glow-emerald svg,
+.fixed.bottom-6.right-6 [class*="border-emerald"] svg {
+  color: #4ade80 !important;
+}
+.fixed.bottom-6.right-6 .glow-rose svg,
+.fixed.bottom-6.right-6 [class*="border-rose"] svg {
+  color: #f87171 !important;
+}
+.fixed.bottom-6.right-6 [class*="border-amber"] svg {
+  color: #fbbf24 !important;
+}
+
+/* ==========================================================================
+   TIMETABLE GRID CELLS & CARDS
+   ========================================================================== */
+tbody td[class*="border-l"] {
+  border-color: #e2e8f0 !important;
+}
+tbody td[class*="bg-slate-900"] {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Normal timetable slot card */
+tbody td [class*="bg-slate-900"] {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+}
+tbody td [class*="bg-slate-900"]:hover {
+  border-color: #0f172a !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Conflicted slot card */
+tbody td [class*="bg-rose-950"] {
+  background-color: #fff1f2 !important;
+  border: 1px solid #fecdd3 !important;
+  box-shadow: 0 2px 8px rgba(225, 29, 72, 0.08) !important;
+}
+
+/* Empty add slot cell */
+tbody td [class*="border-dashed"] {
+  background-color: #fafafa !important;
+  border-color: #e2e8f0 !important;
+}
+tbody td [class*="border-dashed"]:hover {
+  background-color: #f1f5f9 !important;
+  border-color: #0f172a !important;
+}
+
+/* Day row labels & badges */
+tbody td.font-bold {
+  color: #0f172a !important;
+  font-weight: 700 !important;
+}
+[class*="text-emerald-300"], [class*="text-emerald-400"] {
+  color: #0f172a !important;
+}
+
+/* ==========================================================================
+   AUTH PAGES (Login & Signup)
+   ========================================================================== */
+.auth-shell { background: #f8fafc !important; }
+.auth-frame { background: #ffffff !important; border-color: #e2e8f0 !important; box-shadow: 0 24px 70px rgba(0,0,0,.08) !important; }
+.auth-showcase { background: #09090b !important; color: #ffffff !important; }
+.auth-showcase h2,
+.auth-showcase p,
+.auth-showcase span,
+.auth-showcase .text-white { color: #ffffff !important; }
+.auth-showcase p.text-xs,
+.auth-showcase .text-emerald-200,
+.auth-showcase .text-emerald-100 { color: #a1a1aa !important; }
+.auth-showcase p.text-sm { color: #e4e4e7 !important; }
+.auth-showcase .brand-mark { background: #27272a !important; border: 1px solid rgba(255,255,255,0.15) !important; }
+.auth-showcase .brand-mark svg { color: #ffffff !important; }
+.auth-showcase > .absolute.inset-0 { background: #09090b !important; }
+.auth-showcase .bg-white\/10 { background: rgba(255,255,255,.08) !important; }
+.auth-showcase .border-white\/10 { border-color: rgba(255,255,255,.16) !important; }
+
+.auth-frame button[type="submit"] { background: #0f172a !important; color: #ffffff !important; }
+.auth-frame button[type="submit"] * { color: #ffffff !important; }
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 7px; height: 7px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
